@@ -40,8 +40,8 @@ public class LoginSteps {
         clickRememberMe();
         clickLogin();
         checkIfLoggedIn(message);
-
     }
+
 
 
 

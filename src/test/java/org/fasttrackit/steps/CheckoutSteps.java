@@ -25,11 +25,6 @@ public class CheckoutSteps {
         checkoutPage.placeOrder();
     }
 
-    @Step
-    public void checkOrderReceived(String expected){
-        String message = checkoutPage.getOrderReceivedConf() ;
-        Assert.assertEquals(expected, message);
-    }
 
     @Step
     public void invalidBillingInfo(String firstName, String lastName, String country, String address, String townName,

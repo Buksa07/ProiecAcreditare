@@ -75,4 +75,6 @@ public class MyAccountPage extends PageObject {
     public void clickShopLink(){
         clickOn(shopLink);
     }
+
+
 }

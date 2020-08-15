@@ -42,6 +42,25 @@ public class SearchTest extends BaseTest {
         searchSteps.sortByPrice();
         searchSteps.verifyProductPrices();
     }
+    @Test
+    public void searchWithSpecialCharacters() {
+        searchSteps.searchForProduct("@&^@#%^@#^%#@%^@");
+        searchSteps.checkIfNoSearchResults("No products were found matching your selection.");
+    }
+    @Test
+    public void searchWithToMuchCharacters() {
+        searchSteps.searchForProduct("@&^@#%^@#^%#@%^@@@@@@@@@@@@@@$$$$$$$$$$$%%%%%%%%%%%^^^^^&&&&&&&&@@@@@@@@@@$$$$$$$%%%%%%%%%%%@@@%%%%%%^^^^^&&&&&&&&&&&*******************************");
+        searchSteps.checkIfNoSearchResults("No products were found matching your selection.");
+    }
+    @Test
+    public void searchWithNumbersCharacters() {
+        searchSteps.searchForProduct("1234567777777777775555");
+        searchSteps.checkIfNoSearchResults("No products were found matching your selection.");
+    }
+
+
+
+
 
 
 }

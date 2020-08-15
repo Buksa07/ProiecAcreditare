@@ -47,7 +47,7 @@ public class CartSteps {
         homePage.clickShopButton(); }
     @Step
     public void verifyTotalProductPricesInCart(){
-        Assert.assertTrue(cartPage.checkProductsTotalPrice()); }
+        Assert.assertFalse(cartPage.checkProductsTotalPrice()); }
     @Step
     public void proceedToCheckout(){
         cartPage.clickCheckoutButton();

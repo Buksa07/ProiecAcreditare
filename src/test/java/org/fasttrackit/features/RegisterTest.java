@@ -21,7 +21,7 @@ public class RegisterTest extends BaseTest {
     @Test
     public void testInvalidEmailAddressRegister(){
         registerSteps.navigateToMyAccPage();
-        registerSteps.createAccount("qa19team@yahoo.com", "aii3456?");
+        registerSteps.createAccount("qa19team@yahoo", "aii123456?");
         registerSteps.clickRegister();
         registerSteps.checkIfValidRegisterEmailAddress("Error: Please provide a valid email address.");
     }
@@ -29,7 +29,7 @@ public class RegisterTest extends BaseTest {
     @Test
     public void testIfPossibleToRegisterWithSameEmailAddress(){
         registerSteps.navigateToMyAccPage();
-        registerSteps.createAccount("qa19team@yahoo.com", "");
+        registerSteps.createAccount("qa19team@yahoo.com", "aii123456?");
         registerSteps.clickRegister();
         registerSteps.checkIfValidRegisterEmailAddress("Error: An account is already registered with your email address. Please log in.");
     }

@@ -9,6 +9,9 @@ public class RegisterSteps {
     private HomePage homePage;
     private MyAccountPage myAccountPage;
 
+    public RegisterSteps() {
+    }
+
     @Step
     public void navigateToMyAccPage(){
         homePage.open();

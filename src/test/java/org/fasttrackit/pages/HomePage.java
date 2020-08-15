@@ -1,14 +1,13 @@
 package org.fasttrackit.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-
+import net.thucydides.core.pages.PageObject;
 
 @DefaultUrl("http://qa5.fasttrackit.org:8008/")
-public class HomePage extends PageObject {
 
+public class HomePage extends PageObject {
 
     @FindBy(css = ".menu-item-70")
     private WebElementFacade myAccountLink;
@@ -27,12 +26,44 @@ public class HomePage extends PageObject {
 
 
 
+    @FindBy(css = ".entry-title a")
+    private WebElementFacade helloText;
+
+
+
+    @FindBy (css = "#mastheads button.searchsubmit")
+    private WebElementFacade searchButton;
+
+    @FindBy(css = "#menu-item-73")
+    private WebElementFacade shopHeaderButton;
+
+    @FindBy(css = ".bttn.read-more")
+    private WebElementFacade readMoreButton;
+
+    public void clickLoginLink() {
+        clickOn(loginLink);
+    }
+
+    public boolean checkLogOut(String text){
+        return helloText.containsOnlyText(text);
+    }
+
+    public void insertSearchText(String text){ typeInto(searchField, text);
+    }
+    public void clickSearchButton(){
+        clickOn(searchButton);
+    }
+    public void clickShopHeaderButton(){
+        clickOn(shopHeaderButton);
+    }
+    public void clickOnReadMoreButton(){clickOn(readMoreButton);}
+
+
+
     public void clickMyAccount(){
         clickOn(myAccountLink);
     }
-    public void clickLoginLink(){
-        clickOn(loginLink);
-    }
+
 
     public void setSearchField(String value){
         waitFor(searchField);
@@ -45,10 +76,6 @@ public class HomePage extends PageObject {
     public void clickShopButton(){
         clickOn(shopLink);
     }
-
-
-
-
 
 
 }
